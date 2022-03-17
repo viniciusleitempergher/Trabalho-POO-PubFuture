@@ -16,19 +16,21 @@ public class MarcaService implements CRUD<Marca> {
 
 	@Override
 	public void remover(String nome) {
-		for (Marca marca : marcas) {
-			if (marca.getNome().equals(nome)) {
-				marcas.remove(marca);
+		for (int i = 0; i < marcas.size(); i++) {
+			if (marcas.get(i).getNome().equals(nome)) {
+				marcas.remove(marcas.get(i));
+				break;
 			}
 		}
 	}
 
 	@Override
 	public void alterar(String nome, Marca marca) {
-		for (Marca marcaVelha : marcas) {
-			if (marcaVelha.getNome().equals(nome)) {
-				marcas.remove(marcaVelha);
+		for (int i = 0; i < marcas.size(); i++) {
+			if (marcas.get(i).getNome().equals(nome)) {
+				marcas.remove(i);
 				marcas.add(marca);
+				break;
 			}
 		}
 	}

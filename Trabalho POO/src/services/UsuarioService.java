@@ -19,6 +19,7 @@ public class UsuarioService implements CRUD<Vendedor> {
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (usuarios.get(i).getLogin().equals(nome)) {
 				usuarios.remove(usuarios.get(i));
+				break;
 			}
 		}
 	}
@@ -29,6 +30,7 @@ public class UsuarioService implements CRUD<Vendedor> {
 			if (usuarioVelho.getLogin().equals(nome)) {
 				usuarios.remove(usuarioVelho);
 				usuarios.add(usuario);
+				break;
 			}
 		}
 	}

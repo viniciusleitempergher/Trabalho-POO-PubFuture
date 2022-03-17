@@ -2,18 +2,12 @@ package telas;
 
 import javax.swing.JOptionPane;
 
+import main.Main;
 import modelos.usuarios.Administrador;
 import modelos.usuarios.Gerente;
 import modelos.usuarios.Vendedor;
-import services.UsuarioService;
 
 public class Login {
-	private UsuarioService uS;
-	
-	public Login(UsuarioService uS) {
-		this.uS = uS;
-	}
-	
 	public int iniciar() {
 		String[] opcoes = {
 				"Login",
@@ -45,7 +39,7 @@ public class Login {
 		
 		Vendedor v = null;
 		
-		for (Vendedor usuario : uS.listar()) {
+		for (Vendedor usuario : Main.uS.listar()) {
 			if (usuario.getLogin().equals(login)
 					&& usuario.getSenha().equals(senha)) {
 				v = usuario;
@@ -64,12 +58,12 @@ public class Login {
 	}
 
 	private int alterarSenha() {
-		String login = JOptionPane.showInputDialog("Digite seu login:");
+		String email = JOptionPane.showInputDialog("Digite seu email:");
 		
 		Vendedor v = null;
 		
-		for (Vendedor usuario : uS.listar()) {
-			if (usuario.getLogin().equals(login)) {
+		for (Vendedor usuario : Main.uS.listar()) {
+			if (usuario.getEmail().equals(email)) {
 				v = usuario;
 			}
 		}
@@ -79,7 +73,7 @@ public class Login {
 			if (resposta.equalsIgnoreCase(v.getRespostaSecreta())) {
 				String novaSenha = JOptionPane.showInputDialog("Digite a nova senha:");
 				v.setSenha(novaSenha);
-				uS.alterar(v.getLogin(), v);
+				Main.uS.alterar(v.getLogin(), v);
 				return 3;
 			} else {
 				return -2;

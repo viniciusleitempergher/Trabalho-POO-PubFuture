@@ -10,8 +10,8 @@ public class ProdutoService implements CRUD<Produto> {
 	private ArrayList<Produto> produtos = new ArrayList<>();
 	
 	@Override
-	public void cadastrar(Produto marca) {
-		produtos.add(marca);
+	public void cadastrar(Produto produto) {
+		produtos.add(produto);
 	}
 
 	@Override

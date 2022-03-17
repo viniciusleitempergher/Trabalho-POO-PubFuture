@@ -16,9 +16,9 @@ public class UsuarioService implements CRUD<Vendedor> {
 
 	@Override
 	public void remover(String nome) {
-		for (Vendedor usuario : usuarios) {
-			if (usuario.getLogin().equals(nome)) {
-				usuarios.remove(usuario);
+		for (int i = 0; i < usuarios.size(); i++) {
+			if (usuarios.get(i).getLogin().equals(nome)) {
+				usuarios.remove(usuarios.get(i));
 			}
 		}
 	}

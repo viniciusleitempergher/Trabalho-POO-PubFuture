@@ -5,22 +5,31 @@ import java.util.ArrayList;
 import modelos.Venda;
 
 public class Vendedor {
-	protected String login, senha;
+	protected String login, email, senha;
 	protected ArrayList<Venda> vendas;
 	protected double salario;
 	protected double comissao;
 	protected String perguntaSecreta;
 	protected String respostaSecreta;
 	
-	public Vendedor(String login, String senha, ArrayList<Venda> vendas, 
+	public Vendedor(String login, String senha, String email, ArrayList<Venda> vendas, 
 			String perguntaSecreta, String respostaSecreta) {
 		this.login = login;
 		this.senha = senha;
+		this.email = email;
 		this.vendas = vendas;
 		this.salario = 1200;
 		this.comissao = 0.08;
 		this.perguntaSecreta = perguntaSecreta;
 		this.respostaSecreta = respostaSecreta;
+	}
+	
+	public double calculaComissao() {
+		double total = 0;
+		for (Venda v : vendas) {
+			total += v.getValorTotal() * comissao;
+		}
+		return total;
 	}
 
 	public String getLogin() {
@@ -77,5 +86,13 @@ public class Vendedor {
 
 	public void setRespostaSecreta(String respostaSecreta) {
 		this.respostaSecreta = respostaSecreta;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

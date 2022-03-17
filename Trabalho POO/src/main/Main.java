@@ -5,18 +5,22 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import modelos.usuarios.Administrador;
+import services.MarcaService;
+import services.ProdutoService;
 import services.UsuarioService;
 import telas.Login;
 import telas.TelaInicial;
 
 public class Main {
 	public static UsuarioService uS = new UsuarioService();
+	public static MarcaService mS = new MarcaService();
+	public static ProdutoService pS = new ProdutoService();
 	
 	public static void main(String[] args) {
-		uS.cadastrar(new Administrador("admin", "admin", new ArrayList<>(),
+		uS.cadastrar(new Administrador("admin", "admin", "admin@email.com", new ArrayList<>(),
 				"Qual o nome da sua primeira escola?", "Escola Aleatória")); // Cadastrar o administrador
 		
-		Login login = new Login(uS);
+		Login login = new Login();
 		int tentativas = 0;
 		int tentativasAlterarSenha = 0;
 		

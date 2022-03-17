@@ -15,7 +15,7 @@ public class UsuarioService implements CRUD<Vendedor> {
 	}
 
 	@Override
-	public void remover(String nome) {
+	public <String> void remover(String nome) {
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (usuarios.get(i).getLogin().equals(nome)) {
 				usuarios.remove(usuarios.get(i));
@@ -41,7 +41,7 @@ public class UsuarioService implements CRUD<Vendedor> {
 	}
 
 	@Override
-	public Vendedor pesquisar(String nome) {
+	public <String> Vendedor pesquisar(String nome) {
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (usuarios.get(i).getLogin().equals(nome)) return usuarios.get(i);
 		}

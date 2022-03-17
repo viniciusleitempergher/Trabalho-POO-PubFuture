@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public interface CRUD<T> {
 	public void cadastrar(T objeto);
-	public void remover(String nome);
+	public <U> void remover(U nome);
 	public void alterar(String nome, T objeto);
 	public ArrayList<T> listar();
-	public T pesquisar(String nome);
+	public <U> T pesquisar(U nome);
 }

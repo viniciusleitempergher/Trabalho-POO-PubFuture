@@ -8,6 +8,7 @@ import modelos.usuarios.Administrador;
 import services.MarcaService;
 import services.ProdutoService;
 import services.UsuarioService;
+import services.VendaService;
 import telas.Login;
 import telas.TelaInicial;
 
@@ -15,6 +16,7 @@ public class Main {
 	public static UsuarioService uS = new UsuarioService();
 	public static MarcaService mS = new MarcaService();
 	public static ProdutoService pS = new ProdutoService();
+	public static VendaService vS = new VendaService();
 	
 	public static void main(String[] args) {
 		uS.cadastrar(new Administrador("admin", "admin", "admin@email.com", new ArrayList<>(),

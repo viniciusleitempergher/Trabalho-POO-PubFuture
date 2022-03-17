@@ -70,7 +70,7 @@ public class TelaGerenciaProdutos {
 				
 				break;
 			case 3: // Listar
-				String produtos = "Lista de Marcas:\n\n";
+				String produtos = "Lista de Produtos:\n\n";
 				for (Produto produto : Main.pS.listar()) {					
 					produtos += produto.getNome() + "\n";
 					produtos += "Marca: " + Main.mS.listar().get(produto.getIndiceMarca()).getNome() + "\n";

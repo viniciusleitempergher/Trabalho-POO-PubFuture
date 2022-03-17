@@ -15,7 +15,7 @@ public class ProdutoService implements CRUD<Produto> {
 	}
 
 	@Override
-	public void remover(String nome) {
+	public <String> void remover(String nome) {
 		for (int i = 0; i < produtos.size(); i++) {
 			if (produtos.get(i).getNome().equals(nome)) {
 				produtos.remove(produtos.get(i));
@@ -39,7 +39,7 @@ public class ProdutoService implements CRUD<Produto> {
 	}
 
 	@Override
-	public Produto pesquisar(String nome) {
+	public <String> Produto pesquisar(String nome) {
 		for (int i = 0; i < produtos.size(); i++) {
 			if (produtos.get(i).getNome().equals(nome)) return produtos.get(i);
 		}

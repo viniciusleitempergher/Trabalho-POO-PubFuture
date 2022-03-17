@@ -15,7 +15,7 @@ public class MarcaService implements CRUD<Marca> {
 	}
 
 	@Override
-	public void remover(String nome) {
+	public <String> void remover(String nome) {
 		for (int i = 0; i < marcas.size(); i++) {
 			if (marcas.get(i).getNome().equals(nome)) {
 				marcas.remove(marcas.get(i));
@@ -41,7 +41,7 @@ public class MarcaService implements CRUD<Marca> {
 	}
 
 	@Override
-	public Marca pesquisar(String nome) {
+	public <String> Marca pesquisar(String nome) {
 		for (int i = 0; i < marcas.size(); i++) {
 			if (marcas.get(i).getNome().equals(nome)) return marcas.get(i);
 		}

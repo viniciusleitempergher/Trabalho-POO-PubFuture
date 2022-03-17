@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import modelos.usuarios.Administrador;
+import modelos.usuarios.Vendedor;
 import services.MarcaService;
 import services.ProdutoService;
 import services.UsuarioService;
@@ -13,6 +14,7 @@ import telas.Login;
 import telas.TelaInicial;
 
 public class Main {
+	public static Vendedor usuarioLogado;
 	public static UsuarioService uS = new UsuarioService();
 	public static MarcaService mS = new MarcaService();
 	public static ProdutoService pS = new ProdutoService();

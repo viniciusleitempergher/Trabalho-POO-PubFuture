@@ -25,9 +25,9 @@ public class UsuarioService implements CRUD<Vendedor> {
 	}
 
 	@Override
-	public void alterar(String nome, Vendedor usuario) {
+	public void alterar(String login, Vendedor usuario) {
 		for (Vendedor usuarioVelho : usuarios) {
-			if (usuarioVelho.getLogin().equals(nome)) {
+			if (usuarioVelho.getLogin().equals(login)) {
 				usuarios.remove(usuarioVelho);
 				usuarios.add(usuario);
 				break;

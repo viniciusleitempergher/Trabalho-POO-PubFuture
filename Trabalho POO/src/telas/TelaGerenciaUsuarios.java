@@ -76,7 +76,8 @@ public class TelaGerenciaUsuarios {
 							+ "Senha: " + usuario.getSenha() + "\n"
 							+ "Pergunta: " + usuario.getPerguntaSecreta() + "\n"
 							+ "Resposta: " + usuario.getRespostaSecreta() + "\n"
-							+ "Cargo: " + (usuario instanceof Gerente ? "Gerente" : "Vendedor") + "\n"
+							+ "Cargo: " + (usuario instanceof Administrador ? "Administrador" 
+									: (usuario instanceof Gerente ? "Gerente" : "Vendedor")) + "\n"
 							+ "Salário: " + usuario.getSalario() + "\n"
 							+ "Comissão: " + usuario.calculaComissao()
 							);

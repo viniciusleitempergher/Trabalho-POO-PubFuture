@@ -28,6 +28,7 @@ public class Vendedor {
 		double total = 0;
 		for (Venda v : vendas) {
 			total += v.getValorTotal() * comissao;
+			System.out.println(v.getValorTotal());
 		}
 		return total;
 	}

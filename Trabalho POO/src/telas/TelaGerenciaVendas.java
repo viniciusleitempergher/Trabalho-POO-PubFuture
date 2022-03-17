@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import main.Main;
 import modelos.Produto;
 import modelos.Venda;
+import modelos.usuarios.Vendedor;
 import utils.Formatador;
 import utils.Perguntador;
 
@@ -34,6 +35,9 @@ public class TelaGerenciaVendas {
 			case 0:
 				Venda venda = perguntarVenda();
 				Main.vS.cadastrar(venda);
+				Vendedor usuarioLogado = Main.usuarioLogado;
+				usuarioLogado.getVendas().add(venda);
+				Main.uS.alterar(usuarioLogado.getEmail(), usuarioLogado);
 				break;
 			case 1:
 				ArrayList<Venda> vendas = Main.vS.listar();

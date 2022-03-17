@@ -44,6 +44,7 @@ public class Login {
 			if (usuario.getLogin().equals(login)
 					&& usuario.getSenha().equals(senha)) {
 				v = usuario;
+				Main.usuarioLogado = v;
 			}
 		}
 		

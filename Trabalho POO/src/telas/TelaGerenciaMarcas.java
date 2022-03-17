@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import main.Main;
 import modelos.Marca;
 import modelos.Produto;
+import utils.Perguntador;
 
 public class TelaGerenciaMarcas {
 	public void iniciar() {
@@ -27,11 +28,11 @@ public class TelaGerenciaMarcas {
 				);
 			switch (opcao) {
 			case 0:
-				String nome = JOptionPane.showInputDialog("Digite o nome da marca:");
+				String nome = Perguntador.perguntar("Digite o nome da marca:");
 				Main.mS.cadastrar(new Marca(nome));
 				break;
 			case 1:
-				nome = JOptionPane.showInputDialog("Digite o nome da marca:");
+				nome = Perguntador.perguntar("Digite o nome da marca:");
 				Marca m = Main.mS.pesquisar(nome);
 				
 				if (m == null) {
@@ -39,11 +40,11 @@ public class TelaGerenciaMarcas {
 					break;
 				}
 				
-				m.setNome(JOptionPane.showInputDialog("Digite o novo nome da marca:"));
+				m.setNome(Perguntador.perguntar("Digite o novo nome da marca:"));
 				Main.mS.alterar(nome, m);
 				break;
 			case 2:
-				nome = JOptionPane.showInputDialog("Digite o nome da marca:");
+				nome = Perguntador.perguntar("Digite o nome da marca:");
 				m = Main.mS.pesquisar(nome);
 				
 				if (m == null) {

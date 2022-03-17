@@ -9,6 +9,7 @@ import modelos.Venda;
 import modelos.usuarios.Administrador;
 import modelos.usuarios.Gerente;
 import modelos.usuarios.Vendedor;
+import utils.Perguntador;
 
 public class TelaGerenciaUsuarios {
 	public void iniciar() {
@@ -35,7 +36,7 @@ public class TelaGerenciaUsuarios {
 				Main.uS.cadastrar(v);
 				break;
 			case 1: // Alterar
-				String login = JOptionPane.showInputDialog("Digite o login do usuário:");
+				String login = Perguntador.perguntar("Digite o login do usuário:");
 				Vendedor pesquisado = Main.uS.pesquisar(login);
 				
 				if (pesquisado == null) {
@@ -52,7 +53,7 @@ public class TelaGerenciaUsuarios {
 				JOptionPane.showMessageDialog(null, "Usuário alterado!");
 				break;
 			case 2: // Remover
-				login = JOptionPane.showInputDialog("Digite o login do usuário:");
+				login = Perguntador.perguntar("Digite o login do usuário:");
 				pesquisado = Main.uS.pesquisar(login);
 				
 				if (pesquisado == null) {
@@ -88,11 +89,11 @@ public class TelaGerenciaUsuarios {
 	}
 	
 	private Vendedor perguntarUsuario() {
-		String email = JOptionPane.showInputDialog("Digite o email:");
-		String login = JOptionPane.showInputDialog("Digite o login:");
-		String senha = JOptionPane.showInputDialog("Digite a senha:");
-		String fraseRecuperacao = JOptionPane.showInputDialog("Digite a frase de recuperação:");
-		String respostaRecuperacao = JOptionPane.showInputDialog("Digite a resposta da frase:");
+		String email = Perguntador.perguntar("Digite o email:");
+		String login = Perguntador.perguntar("Digite o login:");
+		String senha = Perguntador.perguntar("Digite a senha:");
+		String fraseRecuperacao = Perguntador.perguntar("Digite a frase de recuperação:");
+		String respostaRecuperacao = Perguntador.perguntar("Digite a resposta da frase:");
 		
 		String[] opcoes = { "Vendedor", "Gerente" };
 		

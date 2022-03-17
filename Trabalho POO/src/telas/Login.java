@@ -6,6 +6,7 @@ import main.Main;
 import modelos.usuarios.Administrador;
 import modelos.usuarios.Gerente;
 import modelos.usuarios.Vendedor;
+import utils.Perguntador;
 
 public class Login {
 	public int iniciar() {
@@ -34,8 +35,8 @@ public class Login {
 	}
 	
 	private int logar() {
-		String login = JOptionPane.showInputDialog("Digite seu login:");
-		String senha = JOptionPane.showInputDialog("Digite sua senha:");
+		String login = Perguntador.perguntar("Digite seu login:");
+		String senha = Perguntador.perguntar("Digite sua senha:");
 		
 		Vendedor v = null;
 		
@@ -58,7 +59,7 @@ public class Login {
 	}
 
 	private int alterarSenha() {
-		String email = JOptionPane.showInputDialog("Digite seu email:");
+		String email = Perguntador.perguntar("Digite seu email:");
 		
 		Vendedor v = null;
 		
@@ -69,9 +70,9 @@ public class Login {
 		}
 		
 		if (v != null) {
-			String resposta = JOptionPane.showInputDialog(v.getPerguntaSecreta());
+			String resposta = Perguntador.perguntar(v.getPerguntaSecreta());
 			if (resposta.equalsIgnoreCase(v.getRespostaSecreta())) {
-				String novaSenha = JOptionPane.showInputDialog("Digite a nova senha:");
+				String novaSenha = Perguntador.perguntar("Digite a nova senha:");
 				v.setSenha(novaSenha);
 				Main.uS.alterar(v.getLogin(), v);
 				return 3;

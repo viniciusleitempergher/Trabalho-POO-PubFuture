@@ -32,6 +32,8 @@ public class TelaInicial {
 			case 0:
 				break infinito;
 			case 1:
+				TelaGerenciaVendas telaVendas = new TelaGerenciaVendas();
+				telaVendas.iniciar();
 				break;
 			case 2:
 				TelaGerenciaMarcas telaMarcas = new TelaGerenciaMarcas();

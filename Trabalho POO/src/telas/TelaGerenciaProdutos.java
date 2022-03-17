@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import main.Main;
 import modelos.Marca;
 import modelos.Produto;
+import utils.Perguntador;
 
 public class TelaGerenciaProdutos {
 	public void iniciar() {
@@ -36,7 +37,7 @@ public class TelaGerenciaProdutos {
 				
 				break;
 			case 1: // Alterar
-				String nome = JOptionPane.showInputDialog("Digite o nome do produto");
+				String nome = Perguntador.perguntar("Digite o nome do produto");
 				p = Main.pS.pesquisar(nome);
 				
 				if (p == null) {
@@ -55,7 +56,7 @@ public class TelaGerenciaProdutos {
 				
 				break;
 			case 2: // Remover
-				nome = JOptionPane.showInputDialog("Digite o nome do produto");
+				nome = Perguntador.perguntar("Digite o nome do produto");
 				p = Main.pS.pesquisar(nome);
 				
 				if (p == null) {
@@ -84,7 +85,7 @@ public class TelaGerenciaProdutos {
 	}
 	
 	private Produto perguntarProduto() {
-		String nomeMarca = JOptionPane.showInputDialog("Digite a marca:");
+		String nomeMarca = Perguntador.perguntar("Digite a marca:");
 		Marca marca = Main.mS.pesquisar(nomeMarca);
 		
 		if (marca == null) {
@@ -93,8 +94,8 @@ public class TelaGerenciaProdutos {
 		}
 		
 		int indiceMarca = Main.mS.listar().indexOf(marca);
-		String nome = JOptionPane.showInputDialog("Digite o nome do produto:");
-		double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do produto:"));
+		String nome = Perguntador.perguntar("Digite o nome do produto:");
+		double valor = Perguntador.perguntarDouble("Digite o valor do produto:");
 		
 		return new Produto(indiceMarca, nome, valor);
 	}

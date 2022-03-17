@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import main.Main;
 import modelos.Marca;
 import modelos.Produto;
+import utils.Formatador;
 import utils.Perguntador;
 
 public class TelaGerenciaProdutos {
@@ -74,7 +75,7 @@ public class TelaGerenciaProdutos {
 				for (Produto produto : Main.pS.listar()) {					
 					produtos += produto.getNome() + "\n";
 					produtos += "Marca: " + Main.mS.listar().get(produto.getIndiceMarca()).getNome() + "\n";
-					produtos += "Valor: " + produto.getValor() + "\n\n";
+					produtos += "Valor: " + Formatador.rsf.format(produto.getValor()) + "\n\n";
 				}
 				JOptionPane.showMessageDialog(null, produtos);
 				break;

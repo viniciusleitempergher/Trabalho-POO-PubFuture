@@ -53,10 +53,10 @@ public class TelaGerenciaVendas {
 				for (Venda v : vendas) {
 					vendasTxt += count++ + ")\n";
 					vendasTxt += "Data: " + Formatador.sdf.format(v.getData()) + "\n";
-					vendasTxt += "Valor Total: " + v.getValorTotal() + "\n";
+					vendasTxt += "Valor Total: " + Formatador.rsf.format(v.getValorTotal()) + "\n";
 					vendasTxt += "Produtos: \n";
 					for (Produto p : v.getProdutos()) {
-						vendasTxt += p.getNome() + " - Valor: " + p.getValor() + "\n";
+						vendasTxt += p.getNome() + " - Valor: " + Formatador.rsf.format(p.getValor()) + "\n";
 					}
 					vendasTxt += "\n";
 				}
@@ -81,10 +81,10 @@ public class TelaGerenciaVendas {
 				
 				for (Venda v : vendas) {
 					vendasTxt += "Data: " + Formatador.sdf.format(v.getData()) + "\n";
-					vendasTxt += "Valor: " + v.getValorTotal() + "\n";
+					vendasTxt += "Valor: " + Formatador.rsf.format(v.getValorTotal()) + "\n";
 					vendasTxt += "Produtos: \n";
 					for (Produto p : v.getProdutos()) {
-						vendasTxt += p.getNome() + " - Valor: " + p.getValor() + "\n";
+						vendasTxt += p.getNome() + " - Valor: " + Formatador.rsf.format(p.getValor()) + "\n";
 					}
 					vendasTxt += "\n";
 				}

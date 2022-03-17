@@ -9,6 +9,7 @@ import modelos.Venda;
 import modelos.usuarios.Administrador;
 import modelos.usuarios.Gerente;
 import modelos.usuarios.Vendedor;
+import utils.Formatador;
 import utils.Perguntador;
 
 public class TelaGerenciaUsuarios {
@@ -78,8 +79,8 @@ public class TelaGerenciaUsuarios {
 							+ "Resposta: " + usuario.getRespostaSecreta() + "\n"
 							+ "Cargo: " + (usuario instanceof Administrador ? "Administrador" 
 									: (usuario instanceof Gerente ? "Gerente" : "Vendedor")) + "\n"
-							+ "Salário: " + usuario.getSalario() + "\n"
-							+ "Comissão: " + usuario.calculaComissao()
+							+ "Salário: " + Formatador.rsf.format(usuario.getSalario()) + "\n"
+							+ "Comissão: " + Formatador.rsf.format(usuario.calculaComissao())
 							);
 				});
 				break;

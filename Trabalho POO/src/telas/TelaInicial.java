@@ -38,6 +38,8 @@ public class TelaInicial {
 				telaMarcas.iniciar();
 				break;
 			case 3:
+				TelaGerenciaProdutos telaProdutos = new TelaGerenciaProdutos();
+				telaProdutos.iniciar();
 				break;
 			case 4:
 				TelaGerenciaUsuarios telaUsuarios = new TelaGerenciaUsuarios();

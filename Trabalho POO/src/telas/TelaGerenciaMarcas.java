@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import main.Main;
 import modelos.Marca;
+import modelos.Produto;
 
 public class TelaGerenciaMarcas {
 	public void iniciar() {
@@ -47,6 +48,20 @@ public class TelaGerenciaMarcas {
 				
 				if (m == null) {
 					JOptionPane.showMessageDialog(null, "Marca não encontrada!");
+					break;
+				}
+				
+				boolean temProdutos = false;
+				
+				for (Produto p : Main.pS.listar()) {
+					if (p.getIndiceMarca() == Main.mS.listar().indexOf(m)) {
+						temProdutos = true;
+						break;
+					}
+				}
+				
+				if (temProdutos) {
+					JOptionPane.showMessageDialog(null, "Existem produtos cadastrados desta marca!");
 					break;
 				}
 				

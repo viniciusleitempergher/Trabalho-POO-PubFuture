@@ -50,6 +50,10 @@ public class TelaGerenciaUsuarios {
 					JOptionPane.showMessageDialog(null, "Usuário não encontrado!");
 					break;
 				}
+				if (pesquisado instanceof Administrador) {
+					JOptionPane.showMessageDialog(null, "Impossível alterar o administrador!");
+					break;
+				}
 				
 				JOptionPane.showMessageDialog(null, "Usuário encontrado, digite as novas informações a seguir:");
 				

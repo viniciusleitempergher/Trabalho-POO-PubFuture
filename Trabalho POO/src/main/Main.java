@@ -1,9 +1,13 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import modelos.Marca;
+import modelos.Produto;
+import modelos.Venda;
 import modelos.usuarios.Administrador;
 import modelos.usuarios.Vendedor;
 import services.MarcaService;
@@ -21,8 +25,11 @@ public class Main {
 	public static VendaService vS = new VendaService();
 	
 	public static void main(String[] args) {
+		// Cadastrar o administrador
 		uS.cadastrar(new Administrador("admin", "admin", "admin@email.com", new ArrayList<>(),
-				"Qual o nome da sua primeira escola?", "Escola Aleatória")); // Cadastrar o administrador
+				"Qual o nome da sua primeira escola?", "Escola Aleatória")); 
+		
+		preencherArrays();
 		
 		Login login = new Login();
 		int tentativas = 0;
@@ -90,5 +97,38 @@ public class Main {
 		while (bloqueado) {
 			JOptionPane.showMessageDialog(null, "Sistema bloqueado! Aguarde mais " + tempoBloqueio + " segundos");
 		}
+	}
+	
+	/**
+	 * Método para deixar alguns dados pré cadastrados nos arrays
+	 */
+	static void preencherArrays() {
+		mS.cadastrar(new Marca("Acer"));
+		mS.cadastrar(new Marca("Coca"));
+		mS.cadastrar(new Marca("Samsung"));
+		
+		Produto notebook = new Produto(0, "Notebook", 4000);
+		pS.cadastrar(notebook);
+		
+		Produto refri = new Produto(1, "Refri", 15);
+		pS.cadastrar(refri);
+		
+		Produto celular = new Produto(2, "Celular", 3000);
+		pS.cadastrar(celular);
+		
+		ArrayList<Produto> produtos = new ArrayList<>();
+		produtos.add(notebook);
+		produtos.add(refri);
+		vS.cadastrar(new Venda(new ArrayList<Produto>(produtos), 4015, new Date()));
+		
+		produtos.clear();
+		produtos.add(celular);
+		produtos.add(refri);
+		vS.cadastrar(new Venda(new ArrayList<Produto>(produtos), 3015, new Date()));
+		
+		produtos.clear();
+		produtos.add(refri);
+		produtos.add(refri);
+		vS.cadastrar(new Venda(new ArrayList<Produto>(produtos), 30, new Date()));
 	}
 }

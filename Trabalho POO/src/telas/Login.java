@@ -43,6 +43,12 @@ public class Login {
 		}
 	}
 	
+	/**
+	 * Pede o login e senha ao usuário, retorna o nível dele no sistema ou -1 no caso das informações estarem incorretas
+	 * Também altera a variável usuarioLogado da classe Main para o novo usuário
+	 * 
+	 * @return nivel - O nível do usuário logado, -1 caso as informações de login forem incorretas
+	 */
 	private int logar() {
 		String login = Perguntador.perguntar("Digite seu login:");
 		String senha = Perguntador.perguntar("Digite sua senha:");
@@ -68,6 +74,13 @@ public class Login {
 		}
 	}
 
+	/**
+	 * Método que faz a alteração da senha
+	 * 
+	 * @return 	3 - caso bem sucedida;
+	 * 			-2 - caso erre a resposta;
+	 * 			-3 - caso digite um email inexistente.
+	 */
 	private int alterarSenha() {
 		String email = Perguntador.perguntar("Digite seu email:");
 		

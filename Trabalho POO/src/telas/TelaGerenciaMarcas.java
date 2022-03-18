@@ -27,11 +27,11 @@ public class TelaGerenciaMarcas {
 					opcoes[0]
 				);
 			switch (opcao) {
-			case 0:
+			case 0: // Cadastrar
 				String nome = Perguntador.perguntar("Digite o nome da marca:");
 				Main.mS.cadastrar(new Marca(nome));
 				break;
-			case 1:
+			case 1: // Alterar
 				nome = Perguntador.perguntar("Digite o nome da marca:");
 				Marca m = Main.mS.pesquisar(nome);
 				
@@ -43,7 +43,7 @@ public class TelaGerenciaMarcas {
 				m.setNome(Perguntador.perguntar("Digite o novo nome da marca:"));
 				Main.mS.alterar(nome, m);
 				break;
-			case 2:
+			case 2: // Remover
 				nome = Perguntador.perguntar("Digite o nome da marca:");
 				m = Main.mS.pesquisar(nome);
 				
@@ -69,14 +69,14 @@ public class TelaGerenciaMarcas {
 				Main.mS.remover(m.getNome());
 				
 				break;
-			case 3:
+			case 3: // Listar
 				String marcas = "Lista de Marcas:\n\n";
 				for (Marca marca : Main.mS.listar()) {
 					marcas += marca.getNome() + "\n";
 				}
 				JOptionPane.showMessageDialog(null, marcas);
 				break;
-			case 4:
+			case 4: // Voltar
 				break infinito;
 			}
 		}

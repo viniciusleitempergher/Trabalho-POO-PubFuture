@@ -85,6 +85,10 @@ public class TelaGerenciaProdutos {
 		}
 	}
 	
+	/**
+	 * Pergunta as informações de um produto ao usuário e as retorna como um objeto.
+	 * @return Produto - O produto informado
+	 */
 	private Produto perguntarProduto() {
 		String nomeMarca = Perguntador.perguntar("Digite a marca:");
 		Marca marca = Main.mS.pesquisar(nomeMarca);

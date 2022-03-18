@@ -55,7 +55,7 @@ public class Main {
 			case 3:
 				JOptionPane.showMessageDialog(null, "Senha alterada!");
 				break;
-			default:
+			case 4:
 				break infinito;
 			}
 		}
@@ -64,6 +64,10 @@ public class Main {
 	static boolean bloqueado = false;
 	static int tempoBloqueio = 0;
 	
+	/**
+	 * Bloqueia o sistema com uma mensagem mostrando o tempo que falta para ser liberado
+	 * @param tempo - O tempo de bloqueio
+	 */
 	static void bloquear(int tempo) {
 		bloqueado = true;
 		tempoBloqueio = tempo;

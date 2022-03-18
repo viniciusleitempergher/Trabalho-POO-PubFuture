@@ -6,6 +6,16 @@ import javax.swing.JOptionPane;
 
 public class TelaInicial {
 	
+	/**
+	 * Tela inicial do sistema, após logado.
+	 * Nela se encontram as opções de: Logout, Vender, Gerenciar Marcas, Gerenciar Produtos e Gerenciar Usuários.
+	 * As opções são exibidas de acordo com o nível do usuário passado como parâmetro:
+	 * 			Nível 0 - vendedor: só tem acesso as funções de Logout e Vender
+	 * 			Nível 1 - gerente: tem acesso às funções do vendedor, com o incremento de Gerenciar Marcas e Produtos
+	 * 			Nível 2 - administrador: tem acesso às funções do gerente, com o incremento de Gerenciar Usuários
+	 * 
+	 * @param nivel - O nível de acesso do usuário logado
+	 */
 	public void iniciar(int nivel) {
 		ArrayList<String> arrayOpcoes = new ArrayList<>();
 		arrayOpcoes.add("Logout");

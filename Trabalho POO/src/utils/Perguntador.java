@@ -2,6 +2,10 @@ package utils;
 
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ *	Pergunta informações de diversos tipos para os usuários, valida as respostas e as retorna.
+ */
 public class Perguntador {
 	public static String perguntar(String texto) {
 		boolean invalido = true;

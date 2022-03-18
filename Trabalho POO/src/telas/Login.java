@@ -9,6 +9,15 @@ import modelos.usuarios.Vendedor;
 import utils.Perguntador;
 
 public class Login {
+	/**
+	 * Mostra a primeira tela do sistema com opção de login, alterar senha e sair
+	 * 
+	 * @return 	3 - caso a senha seja alterada com sucesso;
+	 * 			0 a 2 - retorna o nível do usuário entre 0 e 2 caso ele faça login;
+	 * 			-1 - caso ele tente logar com informações incorretas;
+	 * 			-2 - caso ele tente alterar a senha e erre a resposta da pergunta;
+	 * 			-3 - caso ele clique para alterar a senha e informe um email não existente.
+	 */
 	public int iniciar() {
 		String[] opcoes = {
 				"Login",

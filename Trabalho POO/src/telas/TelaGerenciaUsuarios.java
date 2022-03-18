@@ -90,6 +90,11 @@ public class TelaGerenciaUsuarios {
 		}
 	}
 	
+	/**
+	 * Pergunta as informações de um Vendedor ao usuário, e retorna como um objeto
+	 * 
+	 * @return usuario - O vendedor informado
+	 */
 	private Vendedor perguntarUsuario() {
 		String email = Perguntador.perguntar("Digite o email:");
 		String login = Perguntador.perguntar("Digite o login:");

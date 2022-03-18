@@ -34,6 +34,12 @@ public class TelaGerenciaUsuarios {
 			switch (opcao) {
 			case 0: // Cadastrar
 				Vendedor v = perguntarUsuario();
+				
+				// Valida se o login já não existe
+				if (!validarLogin(v.getLogin())) break;
+				// Valida se o email já não existe
+				if (!validarEmail(v.getEmail())) break;
+				
 				Main.uS.cadastrar(v);
 				break;
 			case 1: // Alterar
@@ -48,6 +54,15 @@ public class TelaGerenciaUsuarios {
 				JOptionPane.showMessageDialog(null, "Usuário encontrado, digite as novas informações a seguir:");
 				
 				Vendedor novoUsuario = perguntarUsuario();
+				
+				// Valida se o login já existe, caso ele seja diferente do anterior
+				if (!login.equalsIgnoreCase(novoUsuario.getLogin())) {
+					if (!validarLogin(login)) break;
+				}
+				// Valida se o email já existe, caso ele seja diferente do anterior
+				if (!pesquisado.getEmail().equalsIgnoreCase(novoUsuario.getEmail())) {
+					if (!validarEmail(novoUsuario.getEmail())) break;
+				}
 				
 				Main.uS.alterar(login, novoUsuario);
 				
@@ -88,6 +103,27 @@ public class TelaGerenciaUsuarios {
 				break infinito;
 			}
 		}
+	}
+	
+	private boolean validarLogin(String login) {
+		if (Main.uS.pesquisar(login) != null) {
+			JOptionPane.showMessageDialog(null, "Já existe um usuário com este login!");
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean validarEmail(String email) {
+		boolean emailCadastrado = false;
+		for (Vendedor vendedor : Main.uS.listar()) {
+			if (vendedor.getEmail().equalsIgnoreCase(email)) emailCadastrado = true;
+		}
+		
+		if (emailCadastrado) {
+			JOptionPane.showMessageDialog(null, "Este email já está cadastrado!");
+			return false;
+		}
+		return true;
 	}
 	
 	/**

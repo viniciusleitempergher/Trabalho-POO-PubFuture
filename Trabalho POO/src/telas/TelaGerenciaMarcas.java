@@ -29,6 +29,9 @@ public class TelaGerenciaMarcas {
 			switch (opcao) {
 			case 0: // Cadastrar
 				String nome = Perguntador.perguntar("Digite o nome da marca:");
+				
+				if (!validarNome(nome)) break;
+				
 				Main.mS.cadastrar(new Marca(nome));
 				break;
 			case 1: // Alterar
@@ -40,7 +43,15 @@ public class TelaGerenciaMarcas {
 					break;
 				}
 				
-				m.setNome(Perguntador.perguntar("Digite o novo nome da marca:"));
+				String novoNome = Perguntador.perguntar("Digite o novo nome da marca:");
+				
+				// Caso o novo nome seja diferente do anterior, valida se já não existe esse nome
+				if (!nome.equals(novoNome)) {
+					if (!validarNome(novoNome)) break;
+				}
+				
+				m.setNome(novoNome);
+				
 				Main.mS.alterar(nome, m);
 				break;
 			case 2: // Remover
@@ -80,5 +91,13 @@ public class TelaGerenciaMarcas {
 				break infinito;
 			}
 		}
+	}
+	
+	private boolean validarNome(String nome) {
+		if (Main.mS.pesquisar(nome) != null) {
+			JOptionPane.showMessageDialog(null, "Já existe uma marca com este nome!");
+			return false;
+		}
+		return true;
 	}
 }

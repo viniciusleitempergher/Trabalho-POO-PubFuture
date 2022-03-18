@@ -33,6 +33,7 @@ public class TelaGerenciaProdutos {
 				Produto p = perguntarProduto();
 				
 				if (p == null) break;
+				if (!validarNome(p.getNome())) break;
 				
 				Main.pS.cadastrar(p);
 				
@@ -51,6 +52,11 @@ public class TelaGerenciaProdutos {
 				Produto novoP = perguntarProduto();
 				
 				if (novoP == null) break;
+				
+				// Caso o nome anterior seja diferente do novo, valida se já não existe um igual
+				if  (!p.getNome().equals(novoP.getNome())) {
+					if (!validarNome(novoP.getNome())) break;
+				}
 				
 				Main.pS.alterar(p.getNome(), novoP);
 				JOptionPane.showMessageDialog(null, "Produto alterado!");
@@ -83,6 +89,14 @@ public class TelaGerenciaProdutos {
 				break infinito;
 			}
 		}
+	}
+
+	private boolean validarNome(String nome) {
+		if (Main.pS.pesquisar(nome) != null) {
+			JOptionPane.showMessageDialog(null, "Já existe um produto com este nome!");
+			return false;
+		}
+		return true;
 	}
 	
 	/**
